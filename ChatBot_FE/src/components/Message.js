@@ -51,7 +51,6 @@ const Message = () => {
               width='50px'
               alt={msg.imgPeople}
             />
-            {new Date().getTime().toLocaleString()}
             <h1>{msg.msgChatbot}</h1>
             <img
               src={msg.imgBot}
