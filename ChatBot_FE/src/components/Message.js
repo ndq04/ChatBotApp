@@ -15,7 +15,7 @@ const Message = () => {
   const handleSend = () => {
     if (state.message !== '') {
       axios
-        .post('http://127.0.0.1:2000/chatbot', {
+        .post('http://127.0.0.1:2000/get', {
           message: state.message,
         })
         .then((res) => {
