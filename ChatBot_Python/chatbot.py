@@ -9,6 +9,7 @@ app.config["CORS HEADERS"] = "Content-Type"
 
 bot = ChatBot(
   "ChatBot", 
+  storage_adapter="chatterbot.storage.SQLStorageAdapter",
   filters=["chatterbot.filters.RepetitiveResponseFilter"]
 )
 tranner = ChatterBotCorpusTrainer(bot)
