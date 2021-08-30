@@ -1,8 +1,12 @@
+import {AppBar, Toolbar} from '@material-ui/core'
+
 const Header = () => {
   return (
-    <div>
-      <h2>Header</h2>
-    </div>
+    <AppBar position='static'>
+      <Toolbar>
+        <h2>ChatBot App</h2>
+      </Toolbar>
+    </AppBar>
   )
 }
 

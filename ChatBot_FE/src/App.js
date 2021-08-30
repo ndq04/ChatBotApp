@@ -1,12 +1,13 @@
 import Header from './components/Header'
-import Message from './components/Message'
+import Message from './components/MessageList'
+import {Container} from '@material-ui/core'
 
 const App = () => {
   return (
-    <div>
+    <Container>
       <Header />
       <Message />
-    </div>
+    </Container>
   )
 }
 
