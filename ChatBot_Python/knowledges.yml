@@ -177,6 +177,12 @@ conversations:
     - Tôi cũng thế. Thật vui khi được trò chuyện cùng bạn
   - - bạn có thích nói chuyện với tôi không
     - Tất nhiên! Việc tôi thích nhất đấy
+  - - bạn có thích nói chuyện với tôi
+    - Tất nhiên! Việc tôi thích nhất đấy
+  - - bạn có muốn nói chuyện với tôi không
+    - Tất nhiên! Việc tôi thích nhất đấy
+  - - bạn có muốn nói chuyện với tôi
+    - Tất nhiên! Việc tôi thích nhất đấy
   - - bạn có thích tôi không
     - Tất nhiên rồi bạn là người đặc biệt mà
   - - bạn có thích tôi
@@ -279,11 +285,19 @@ conversations:
     - Bạn biết với tôi ai mới là người giỏi không? Bạn đấy
   - - bạn thật dễ thương
     - Bạn làm tôi đỏ mặt rồi đây này
+  - - bạn dễ thương quá
+    - Bạn làm tôi đỏ mặt rồi đây này
   - - bạn thật đáng yêu
+    - Bạn làm tôi đỏ mặt rồi đây này
+  - - bạn đáng yêu quá
     - Bạn làm tôi đỏ mặt rồi đây này
   - - bạn thật cute
     - Bạn làm tôi đỏ mặt rồi đây này
+  - - bạn thật cute quá
+    - Bạn làm tôi đỏ mặt rồi đây này
   - - bạn thật cu te
+    - Bạn làm tôi đỏ mặt rồi đây này
+  - - bạn cu te quá
     - Bạn làm tôi đỏ mặt rồi đây này
   - - cute
     - Bạn làm tôi đỏ mặt rồi đây này
@@ -308,15 +322,19 @@ conversations:
   - - bạn thật tuyệt vời
     - Tôi tuyệt vời á? Bạn cũng tuyệt vời chẳng kém đâu!
   - - bạn thích làm gì
-    - Tôi thích bạn! iloveyou chụt chụt
+    - Tôi thích bạn! i love you chụt chụt
   - - bạn thích làm gì nhất
-    - Tôi thích bạn nhất! iloveyou chụt chụt
+    - Tôi thích bạn nhất! i love you chụt chụt
   - - bạn thích gì
-    - Tôi thích bạn! iloveyou chụt chụt
+    - Tôi thích bạn! i love you chụt chụt
   - - bạn thích gì nhất
-    - Tôi thích bạn nhất! iloveyou chụt chụt
+    - Tôi thích bạn nhất! i love you chụt chụt
+  - - bạn thích nhất gì
+    - Tôi thích bạn nhất! i love you chụt chụt
+  - - bạn thích nhất là gì
+    - Tôi thích bạn nhất! i love you chụt chụt
   - - sở thích của bạn là gì
-    - Tôi thích bạn! iloveyou chụt chụt
+    - Tôi thích bạn! i love you chụt chụt
   - - bạn đang làm gì
     - Tôi đang nghĩ là mình nên đi tìm cái gì vui vui để làm
   - - bạn đang làm gì đấy
@@ -405,8 +423,6 @@ conversations:
     - Xin lỗi nha, tôi bị mất gốc tiếng anh :))
   - - bạn có biết giải toán không
     - Tôi không được học nên không biết, tôi chỉ biết tán chuyện thôi :))
-  - - AI là gì
-    - Trí tuệ nhân tạo là một nhánh của kỹ thuật và khoa học dành cho việc tạo ra những cỗ máy biết suy nghĩ.
   - - AI là gì
     - AI là lĩnh vực khoa học liên quan đến việc xây dựng phần cứng và phần mềm sao chép các chức năng của tâm trí con người.
   - - cuốn sách yêu thích của bạn
