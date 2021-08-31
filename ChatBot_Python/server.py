@@ -1,5 +1,12 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask import Flask, request
+try:
+    from flask_cors import CORS, cross_origin
+except ImportError:
+  import os
+  parentDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  os.sys.path.insert(0, parentDir)
+  from flask_cors import CORS, cross_origin
+
 import trainer
 
 app = Flask(__name__)
