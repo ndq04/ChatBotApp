@@ -1,8 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
-import {AppBar, Toolbar} from '@material-ui/core'
 
-const Message = () => {
+const Chatbot = () => {
   const [state, setState] = useState({
     chat: [],
     message: '',
@@ -14,11 +13,10 @@ const Message = () => {
       message: e.target.value,
     })
   }
-
   const handleSend = () => {
     if (state.message !== '') {
       axios
-        .post('http://127.0.0.1:2000/get', {
+        .post('http://127.0.0.1:2000/api/chatbot', {
           message: state.message,
         })
         .then((res) => {
@@ -46,7 +44,7 @@ const Message = () => {
   }
   return (
     <div>
-      <div style={{height: '70vh', overflowY: 'auto'}}>
+      <div style={{height: '60vh', overflowY: 'auto'}}>
         {state.chat.map((msg, i) => (
           <div
             key={i}
@@ -85,9 +83,9 @@ const Message = () => {
           </div>
         ))}
       </div>
-      <div style={{height: '20vh'}}>
-        <AppBar position='static'>
-          <Toolbar>
+      <div>
+        <div position='static'>
+          <div>
             <input
               type='text'
               name='message'
@@ -95,11 +93,11 @@ const Message = () => {
               onChange={handleChange}
             />
             <button onClick={handleSend}>Send</button>
-          </Toolbar>
-        </AppBar>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
-export default Message
+export default Chatbot
