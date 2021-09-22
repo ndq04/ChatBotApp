@@ -1,0 +1,84 @@
+@media screen and (max-width: 1300px) {
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  button {
+    background: #ff6059;
+  }
+}
+@media screen and (max-width: 960px) {
+  .container {
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .messages {
+    height: 80vh;
+  }
+  .message-foot {
+    height: 10%;
+  }
+  .message-body {
+    flex-direction: column;
+  }
+  .input {
+    margin-bottom: 0;
+  }
+  .circle {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .message-head {
+    padding: 0 5%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .messages {
+    height: 85vh;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    width: 100%;
+  }
+  .toggle {
+    margin-left: auto;
+  }
+  button {
+    background: #febd2d;
+    font-size: 18px;
+    line-height: 40px;
+    min-width: 90%;
+  }
+  .fas {
+    display: none;
+  }
+  .message-head {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  select {
+    flex: none;
+    width: 100%;
+  }
+  .header {
+    height: 10vh;
+  }
+  .links li a {
+    width: 30px;
+    height: 30px;
+  }
+  textarea,
+  .output {
+    font-size: 18px;
+  }
+}

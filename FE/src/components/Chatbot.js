@@ -13,7 +13,8 @@ const Chatbot = () => {
       message: e.target.value,
     })
   }
-  const handleSend = () => {
+  const handleSend = (e) => {
+    e.preventDefault()
     if (state.message !== '') {
       axios
         .post('http://127.0.0.1:2000/api/chatbot', {
@@ -43,8 +44,8 @@ const Chatbot = () => {
     }
   }
   return (
-    <div>
-      <div style={{height: '60vh', overflowY: 'auto'}}>
+    <div className='chatbot'>
+      <div className='message__content'>
         {state.chat.map((msg, i) => (
           <div
             key={i}
@@ -83,17 +84,22 @@ const Chatbot = () => {
           </div>
         ))}
       </div>
-      <div>
-        <div position='static'>
-          <div>
+      <div className='message__send'>
+        <div className='input-wrapper'>
+          <form onSubmit={handleSend}>
             <input
               type='text'
               name='message'
               value={state.message}
               onChange={handleChange}
             />
-            <button onClick={handleSend}>Send</button>
-          </div>
+            <div className='send-icon'>
+              <i
+                className='fad fa-paper-plane'
+                onClick={handleSend}
+              ></i>
+            </div>
+          </form>
         </div>
       </div>
     </div>

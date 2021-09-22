@@ -1,10 +1,17 @@
 import {useState} from 'react'
 import axios from 'axios'
+import {useContext} from 'react'
+import {ThemeContext} from '../context/ThemeContext'
 
-const Message = () => {
+const Translate = () => {
+  const {isToggle} = useContext(ThemeContext)
+  console.log(isToggle)
+  const [language1, setLanguage1] = useState('vi')
+  const [language2, setLanguage2] = useState('en')
+
   const [state, setState] = useState({
-    chat: [],
-    message: '',
+    input: '',
+    output: '',
     language: [
       {value: 'af', label: 'afrikaans'},
       {value: 'am', label: 'amharic'},
@@ -21,7 +28,7 @@ const Message = () => {
       {value: 'da', label: 'danish'},
       {value: 'de', label: 'german'},
       {value: 'el', label: 'greek'},
-      {value: 'en', label: 'english'},
+      {value: 'en', label: 'Anh'},
       {value: 'eo', label: 'esperanto'},
       {value: 'es', label: 'spanish'},
       {value: 'et', label: 'estonian'},
@@ -46,13 +53,13 @@ const Message = () => {
       {value: 'is', label: 'icelandic'},
       {value: 'it', label: 'italian'},
       {value: 'iw', label: 'hebrew'},
-      {value: 'ja', label: 'japanese'},
+      {value: 'ja', label: 'Nhật'},
       {value: 'jw', label: 'javanese'},
       {value: 'ka', label: 'georgian'},
       {value: 'kk', label: 'kazakh'},
       {value: 'km', label: 'khmer'},
       {value: 'kn', label: 'kannada'},
-      {value: 'ko', label: 'korean'},
+      {value: 'ko', label: 'Hàn'},
       {value: 'ku', label: 'kurdish (kurmanji)'},
       {value: 'ky', label: 'kyrgyz'},
       {value: 'la', label: 'latin'},
@@ -96,141 +103,117 @@ const Message = () => {
       {value: 'ta', label: 'tamil'},
       {value: 'te', label: 'telugu'},
       {value: 'tg', label: 'tajik'},
-      {value: 'th', label: 'thai'},
+      {value: 'th', label: 'Thái'},
       {value: 'tl', label: 'filipino'},
       {value: 'tr', label: 'turkish'},
       {value: 'ug', label: 'uyghur'},
       {value: 'uk', label: 'ukrainian'},
       {value: 'ur', label: 'urdu'},
       {value: 'uz', label: 'uzbek'},
-      {value: 'vi', label: 'vietnamese'},
+      {value: 'vi', label: 'Việt'},
       {value: 'xh', label: 'xhosa'},
       {value: 'yi', label: 'yiddish'},
       {value: 'yo', label: 'yoruba'},
       {value: 'zu', label: 'zulu'},
-      {value: 'zh-cn', label: 'chinese (simplified)'},
-      {value: 'zh-tw', label: 'chinese (traditional)'},
+      {value: 'zh-cn', label: 'Trung'},
     ],
   })
-
-  const [language1, setLanguage1] = useState('vi')
-  const [language2, setLanguage2] = useState('en')
 
   const handleChange = (e) => {
     setState({
       ...state,
-      message: e.target.value,
+      input: e.target.value,
     })
   }
-  const handleSend = () => {
+  const handleTranslate = () => {
     if (state.message !== '') {
       axios
         .post('http://127.0.0.1:2000/api/translate', {
-          message: state.message,
+          message: state.input,
           src: language1,
           dest: language2,
         })
         .then((res) => {
-          const newChat = state.chat
-          const people = {
-            from: 'people',
-            message: state.message,
-            img: './avatar.jpg',
-          }
-          const chatbot = {
-            from: 'chatbot',
-            message: res.data,
-            img: './bot.png',
-          }
-          newChat.push(people, chatbot)
+          console.log(res.data)
           setState({
             ...state,
-            newChat,
-            message: '',
+            output: res.data,
           })
-          console.log(state)
         })
         .catch((err) => console.log(err))
     }
   }
   return (
-    <div>
-      <div style={{height: '60vh', overflowY: 'auto'}}>
-        {state.chat.map((msg, i) => (
-          <div
-            key={i}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent:
-                  msg.from === 'people' ? 'flex-end' : '',
-              }}
-            >
-              {msg.from === 'people' ? (
-                <>
-                  <div>{msg.message}</div>
-                  <img
-                    src={msg.img}
-                    width='50px'
-                    alt={msg.img}
-                  />
-                </>
-              ) : (
-                <>
-                  <img
-                    src={msg.img}
-                    width='50px'
-                    alt={msg.img}
-                  />
-                  <div>{msg.message}</div>
-                </>
-              )}
-            </div>
-          </div>
-        ))}
+    <div className='messages'>
+      <div
+        className={
+          isToggle ? 'message-head dark' : 'message-head'
+        }
+      >
+        <span className='circle circle1'></span>
+        <span className='circle circle2'></span>
+        <span className='circle circle3'></span>
+        <select
+          id='language1'
+          value={language1}
+          onChange={(e) => setLanguage1(e.target.value)}
+          className={isToggle ? 'dark' : ''}
+        >
+          {state.language.map((option, i) => (
+            <option value={option.value} key={i}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <i
+          className={
+            isToggle
+              ? 'fas fa-arrow-alt-right dark'
+              : 'fas fa-arrow-alt-right'
+          }
+        ></i>
+        <select
+          id='language2'
+          value={language2}
+          onChange={(e) => setLanguage2(e.target.value)}
+          className={isToggle ? 'dark' : ''}
+        >
+          {state.language.map((option, i) => (
+            <option value={option.value} key={i}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
-      <div>
-        <div position='static'>
-          <div>
-            <input
-              type='text'
-              name='message'
-              value={state.message}
-              onChange={handleChange}
-            />
-            <button onClick={handleSend}>Send</button>
-            <select
-              value={language1}
-              onChange={(e) => setLanguage1(e.target.value)}
-            >
-              {state.language.map((option, i) => (
-                <option value={option.value} key={i}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <select
-              value={language2}
-              onChange={(e) => setLanguage2(e.target.value)}
-            >
-              {state.language.map((option, i) => (
-                <option value={option.value} key={i}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            {language1}
-            {language2}
-          </div>
+      <div
+        className={
+          isToggle ? 'message-body dark' : 'message-body'
+        }
+      >
+        <div className={isToggle ? 'input dark' : 'input'}>
+          <textarea
+            type='text'
+            name='input'
+            value={state.input}
+            onChange={handleChange}
+            className={isToggle ? 'dark' : ''}
+          ></textarea>
         </div>
+        <div
+          className={isToggle ? 'output dark' : 'output'}
+        >
+          {state.output}
+        </div>
+      </div>
+      <div
+        className={
+          isToggle ? 'message-foot dark' : 'message-foot'
+        }
+      >
+        <button onClick={handleTranslate}>Dịch</button>
       </div>
     </div>
   )
 }
 
-export default Message
+export default Translate

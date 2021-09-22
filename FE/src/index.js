@@ -1,11 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import './index.css'
+import ThemeContextPorvider from './context/ThemeContext'
+import './styles/index.css'
+import './styles/responsive.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeContextPorvider>
+      <App />
+    </ThemeContextPorvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
