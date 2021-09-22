@@ -14,7 +14,6 @@ import googletrans
 from googletrans import Translator
 
 translator=Translator()
-language = googletrans.LANGUAGES
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*":{"origins":"*"}})
