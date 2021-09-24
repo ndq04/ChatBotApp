@@ -1,7 +1,12 @@
-import {useState} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
+import {useContext} from 'react'
+import {ThemeContext} from '../context/ThemeContext'
 
 const Chatbot = () => {
+  const {isToggle} = useContext(ThemeContext)
+
+  const messageEl = useRef(null)
   const [state, setState] = useState({
     chat: [],
     message: '',
@@ -43,55 +48,92 @@ const Chatbot = () => {
         .catch((err) => console.log(err))
     }
   }
+  useEffect(() => {
+    if (messageEl) {
+      messageEl.current.addEventListener(
+        'DOMNodeInserted',
+        (event) => {
+          const {currentTarget: target} = event
+          target.scroll({
+            top: target.scrollHeight,
+            behavior: 'smooth',
+          })
+        }
+      )
+    }
+  }, [])
   return (
-    <div className='chatbot'>
-      <div className='message__content'>
+    <div className={isToggle ? 'chatbot dark' : 'chatbot'}>
+      <div className='chatbot_header'>
+        <div className='chatbot_header-left'>
+          <div className='image image-status'>
+            <img src='./bot.png' alt='Chatbot' />
+          </div>
+          <div className={isToggle ? 'info dark' : 'info'}>
+            <p>Chatbot</p>
+            <p>Đang hoạt động</p>
+          </div>
+        </div>
+      </div>
+      <div className='chatbot_container' ref={messageEl}>
         {state.chat.map((msg, i) => (
           <div
+            className='chatbot_content'
             key={i}
             style={{
-              display: 'flex',
-              flexDirection: 'column',
+              justifyContent:
+                msg.from === 'people'
+                  ? 'flex-end'
+                  : 'flex-start',
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent:
-                  msg.from === 'people' ? 'flex-end' : '',
-              }}
-            >
-              {msg.from === 'people' ? (
-                <>
-                  <div>{msg.message}</div>
-                  <img
-                    src={msg.img}
-                    width='50px'
-                    alt={msg.img}
-                  />
-                </>
-              ) : (
-                <>
-                  <img
-                    src={msg.img}
-                    width='50px'
-                    alt={msg.img}
-                  />
-                  <div>{msg.message}</div>
-                </>
-              )}
-            </div>
+            {msg.from === 'people' ? (
+              <>
+                <p className='message message-user'>
+                  {msg.message}
+                </p>
+                <img
+                  className='image'
+                  src={msg.img}
+                  alt={msg.img}
+                />
+              </>
+            ) : (
+              <>
+                <img
+                  className='image'
+                  src={msg.img}
+                  alt={msg.img}
+                />
+                <p
+                  className={
+                    isToggle
+                      ? 'message message-bot dark'
+                      : 'message message-bot'
+                  }
+                >
+                  {msg.message}
+                </p>
+              </>
+            )}
           </div>
         ))}
       </div>
-      <div className='message__send'>
-        <div className='input-wrapper'>
+      <div className='chatbot_send'>
+        <div
+          className={
+            isToggle
+              ? 'input-wrapper dark'
+              : 'input-wrapper'
+          }
+        >
           <form onSubmit={handleSend}>
             <input
               type='text'
               name='message'
               value={state.message}
               onChange={handleChange}
+              placeholder='Bắt đầu trò chuyện ....'
             />
             <div className='send-icon'>
               <i
