@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import ThemeContextPorvider from './context/ThemeContext'
 import './styles/index.css'
+import './styles/translate.css'
+import './styles/chatbot.css'
 import './styles/responsive.css'
 
 ReactDOM.render(
