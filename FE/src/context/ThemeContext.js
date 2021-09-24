@@ -4,7 +4,7 @@ const light = {
   background: '#fff',
 }
 const dark = {
-  background: '#333',
+  background: '#242526',
 }
 
 export const ThemeContext = createContext()
