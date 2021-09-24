@@ -5,7 +5,7 @@ import {ThemeContext} from '../context/ThemeContext'
 
 const Translate = () => {
   const {isToggle} = useContext(ThemeContext)
-  console.log(isToggle)
+
   const [language1, setLanguage1] = useState('vi')
   const [language2, setLanguage2] = useState('en')
 
@@ -144,10 +144,12 @@ const Translate = () => {
     }
   }
   return (
-    <div className='messages'>
+    <div className='translate'>
       <div
         className={
-          isToggle ? 'message-head dark' : 'message-head'
+          isToggle
+            ? 'translate-head dark'
+            : 'translate-head'
         }
       >
         <span className='circle circle1'></span>
@@ -187,7 +189,9 @@ const Translate = () => {
       </div>
       <div
         className={
-          isToggle ? 'message-body dark' : 'message-body'
+          isToggle
+            ? 'translate-body dark'
+            : 'translate-body'
         }
       >
         <div className={isToggle ? 'input dark' : 'input'}>
@@ -207,7 +211,9 @@ const Translate = () => {
       </div>
       <div
         className={
-          isToggle ? 'message-foot dark' : 'message-foot'
+          isToggle
+            ? 'translate-foot dark'
+            : 'translate-foot'
         }
       >
         <button onClick={handleTranslate}>Dịch</button>
