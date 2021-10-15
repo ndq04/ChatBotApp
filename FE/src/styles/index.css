@@ -94,10 +94,13 @@ h3.dark {
   position: relative;
 }
 
-.links li a i {
+.icon {
   margin: auto;
-  font-size: 120%;
-  color: gray;
+  font-size: 150%;
+  color: #1888ff;
+}
+.icon.chat {
+  color: #19e635;
 }
 .translate:hover::before {
   content: attr(translate);

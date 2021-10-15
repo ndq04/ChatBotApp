@@ -2,6 +2,7 @@ import {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import {useContext} from 'react'
 import {ThemeContext} from '../context/ThemeContext'
+import {FaPaperPlane} from 'react-icons/fa'
 
 const Chatbot = () => {
   const {isToggle} = useContext(ThemeContext)
@@ -135,11 +136,14 @@ const Chatbot = () => {
               onChange={handleChange}
               placeholder='Bắt đầu trò chuyện ....'
             />
-            <div className='send-icon'>
-              <i
-                className='fad fa-paper-plane'
-                onClick={handleSend}
-              ></i>
+            <div className='send-icon' onClick={handleSend}>
+              <FaPaperPlane
+                style={{
+                  margin: 'auto',
+                  fontSize: '120%',
+                  color: '#fff',
+                }}
+              />
             </div>
           </form>
         </div>

@@ -3,6 +3,7 @@ import Toggle from './Toggle'
 import {useContext} from 'react'
 import {ThemeContext} from '../context/ThemeContext'
 import {GiBatwingEmblem} from 'react-icons/gi'
+import {SiGoogletranslate, SiWechat} from 'react-icons/si'
 
 const Header = () => {
   const {isToggle} = useContext(ThemeContext)
@@ -28,9 +29,9 @@ const Header = () => {
               <Link
                 to='/'
                 translate='Dịch'
-                className='translate dark'
+                className='translate'
               >
-                <i className='far fa-language'></i>
+                <SiGoogletranslate className='icon' />
               </Link>
             </li>
             <li>
@@ -39,7 +40,7 @@ const Header = () => {
                 chat='Trò chuyện'
                 className='chat'
               >
-                <i className='fal fa-comments-alt'></i>
+                <SiWechat className='icon chat' />
               </Link>
             </li>
             <Toggle isToggle={isToggle} />

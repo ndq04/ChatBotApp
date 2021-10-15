@@ -39,7 +39,7 @@
   font-weight: 500;
 }
 .info p:last-child {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.8;
   font-weight: 300;
 }
@@ -156,9 +156,4 @@ form input:focus {
   display: flex;
   cursor: pointer;
   flex-shrink: 0;
-}
-.send-icon i {
-  margin: auto;
-  font-size: 120%;
-  color: #fff;
 }
