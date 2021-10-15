@@ -9,8 +9,6 @@ except ImportError:
   from flask_cors import CORS, cross_origin
 
 import trainer
-
-import googletrans
 from googletrans import Translator
 
 translator=Translator()
@@ -34,6 +32,7 @@ def translate():
   }
   response = translator.translate(text=user_input["message"], src=user_input["src"], dest=user_input["dest"])
   return str(response.text)
+  
 @app.route("/api/chatbot", methods=['POST'])
 @cross_origin()
 def chatbot():
