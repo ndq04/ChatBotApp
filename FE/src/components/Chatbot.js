@@ -7,7 +7,7 @@ import {FaPaperPlane} from 'react-icons/fa'
 const Chatbot = () => {
   const {isToggle} = useContext(ThemeContext)
 
-  const messageEl = useRef(null)
+  const msgRef = useRef(null)
   const [state, setState] = useState({
     chat: [],
     message: '',
@@ -50,8 +50,8 @@ const Chatbot = () => {
     }
   }
   useEffect(() => {
-    if (messageEl) {
-      messageEl.current.addEventListener(
+    if (msgRef) {
+      msgRef.current.addEventListener(
         'DOMNodeInserted',
         (event) => {
           const {currentTarget: target} = event
@@ -76,7 +76,7 @@ const Chatbot = () => {
           </div>
         </div>
       </div>
-      <div className='chatbot_container' ref={messageEl}>
+      <div className='chatbot_container' ref={msgRef}>
         {state.chat.map((msg, i) => (
           <div
             className='chatbot_content'

@@ -1,17 +1,16 @@
-import json
 from flask import Flask, request
-try:
-    from flask_cors import CORS, cross_origin
-except ImportError:
-  import os
-  parentDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-  os.sys.path.insert(0, parentDir)
-  from flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 
-import trainer
 from googletrans import Translator
-
 translator=Translator()
+
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+myBot = ChatBot("My ChatBot")
+
+trainer = ChatterBotCorpusTrainer(myBot)
+trainer.train("./knowledges.yml")
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*":{"origins":"*"}})
@@ -37,7 +36,7 @@ def translate():
 @cross_origin()
 def chatbot():
   user_input = request.json["message"]
-  response = trainer.brain(user_input)
+  response = myBot.get_response(user_input)
   return str(response)
 
 if __name__ == "__main__":

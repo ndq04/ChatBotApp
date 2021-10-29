@@ -143,6 +143,7 @@ const Translate = () => {
         .catch((err) => console.log(err))
     }
   }
+
   return (
     <div className='translate'>
       <div
