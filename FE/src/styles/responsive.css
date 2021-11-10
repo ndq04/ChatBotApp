@@ -1,29 +1,59 @@
-@media screen and (max-width: 1299px) {
-  .container {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-}
 @media screen and (max-width: 1279px) {
+  .App {
+    flex-direction: column;
+  }
+  .header {
+    width: 100%;
+    height: 12%;
+    margin-left: 30px;
+    padding: 15px;
+  }
+  .header-nav {
+    height: 100%;
+    margin-bottom: 0;
+  }
+  .logo {
+    font-size: 150%;
+  }
+  .toggle {
+    margin-left: 0;
+  }
+  .header-menu {
+    padding-top: 0;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .header-menu li a {
+    width: 140px;
+    padding: 5px;
+    margin: 0;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  .header-menu li a span {
+    margin-left: 10px;
+  }
+  .header-menu li a.active::before,
+  .header-menu li a.active::after {
+    display: none;
+  }
+  .icon {
+    font-size: 120%;
+  }
   .container {
-    padding-left: 30px;
-    padding-right: 30px;
+    width: 100%;
+    margin: 0 auto;
   }
-  .chatbot {
-    margin-top: -20px;
-  }
-  .message-bot {
-    max-width: 50%;
-  }
+
   button {
     background: #ff6059;
   }
 }
 @media screen and (max-width: 959px) {
   .container {
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-top: -20px;
   }
   .translate {
     height: 80vh;
@@ -40,9 +70,6 @@
   .translate-foot {
     height: 10%;
   }
-  .translate-body {
-    flex-direction: column;
-  }
   .input {
     margin-bottom: 0;
   }
@@ -50,17 +77,9 @@
     display: none;
   }
 }
-@media screen and (max-width: 767px) {
-  .translate-head {
-    padding: 0 5%;
-  }
-}
 @media screen and (max-width: 599px) {
-  .chatbot {
-    height: 85vh;
-  }
-  .translate {
-    height: 85vh;
+  .header {
+    height: 15%;
   }
   .chatbot_header,
   .chatbot_send {
@@ -129,9 +148,6 @@
   select {
     flex: none;
     width: 100%;
-  }
-  .header {
-    height: 10vh;
   }
   .links li a {
     width: 30px;

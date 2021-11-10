@@ -15,6 +15,7 @@ const Header = () => {
         <h3 className={isToggle ? 'dark' : ''}>
           <span>
             <GiBatwingEmblem
+              className='logo'
               fontSize='200%'
               style={{
                 marginRight: '10px',

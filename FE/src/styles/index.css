@@ -53,7 +53,7 @@ h3.dark {
 .header {
   width: 30%;
   height: 92%;
-  margin-right: 35px;
+  margin-right: 30px;
   display: flex;
   flex-direction: column;
   background-color: #18273b;
@@ -84,7 +84,6 @@ h3.dark {
   display: flex;
   align-items: center;
   width: 100%;
-  /* background: red; */
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 15px 0 0 15px;
