@@ -1,7 +1,7 @@
 import {createContext, useState} from 'react'
 
 const light = {
-  background: '#fff',
+  background: '#f1f1f1',
 }
 const dark = {
   background: '#242526',

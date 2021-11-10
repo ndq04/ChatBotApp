@@ -13,8 +13,8 @@ import {ThemeContext} from './context/ThemeContext'
 const App = () => {
   const {light, dark, isToggle} = useContext(ThemeContext)
   return (
-    <div className='App' style={isToggle ? dark : light}>
-      <Router>
+    <Router>
+      <div className='App' style={isToggle ? dark : light}>
         <Header />
         <div className='container'>
           <Switch>
@@ -23,8 +23,8 @@ const App = () => {
             <Route path='/*' component={Error} />
           </Switch>
         </div>
-      </Router>
-    </div>
+      </div>
+    </Router>
   )
 }
 

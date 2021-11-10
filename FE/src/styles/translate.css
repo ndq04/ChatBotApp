@@ -25,8 +25,8 @@ select.dark {
 }
 .translate {
   width: 100%;
-  height: 70vh;
-  box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.2);
+  height: 92%;
+  box-shadow: 0 1px 20px 1px #18273b;
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -35,9 +35,9 @@ select.dark {
 }
 .translate-head {
   width: 100%;
-  height: 15%;
+  height: 12%;
   /* background: #eaeef0; */
-  background: #cecaca;
+  background: #18273b;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,6 +47,9 @@ select.dark {
 }
 .translate-head.dark {
   background: #000;
+}
+.translate-body {
+  flex-direction: column;
 }
 .circle {
   position: absolute;
@@ -100,6 +103,9 @@ select.dark {
     inset 3px 3px 5px rgba(0, 0, 0, 0.1),
     inset -1px -1px 5px rgba(255, 255, 255, 1);
 }
+.input {
+  margin-bottom: 0;
+}
 
 .output {
   overflow-y: auto;
@@ -136,9 +142,9 @@ textarea.dark {
 }
 .translate-foot {
   flex-shrink: 0;
-  height: 15%;
+  height: 10%;
   /* background: #eaeef0; */
-  background: #cecaca;
+  background: #18273b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +154,7 @@ textarea.dark {
 }
 button {
   cursor: pointer;
-  background-color: #febd2d;
+  background-color: #18273b;
   color: #fff;
   border: none;
   outline: none;
@@ -156,7 +162,10 @@ button {
   font-size: 20px;
   line-height: 42px;
   min-width: 120px;
+  border: 2px solid;
+  transition: all 0.5s ease;
 }
 button:hover {
-  background-color: #ffae00;
+  background-color: #f1f1f1;
+  color: #18273b;
 }

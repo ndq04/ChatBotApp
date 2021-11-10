@@ -1,26 +1,27 @@
 /* Chat styles */
 .chatbot {
-  box-shadow: 0 1px 30px 1px rgba(0, 0, 0, 0.2);
-  height: 80vh;
+  box-shadow: 0 1px 20px 1px #18273b;
+  width: 100%;
+  height: 92%;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  margin-top: -30px;
   overflow: hidden;
 }
 .chatbot.dark {
-  box-shadow: 0 1px 30px #fff;
+  box-shadow: 0 1px 20px #fff;
 }
 .chatbot.dark .chatbot_header {
   box-shadow: 0 1px 30px #000;
 }
 .chatbot_header {
   flex-shrink: 0;
-  height: 10vh;
+  height: 11vh;
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   padding: 0 30px;
+  background-color: #18273b;
 }
 .chatbot_header-left {
   display: flex;
@@ -29,7 +30,7 @@
 .info {
   margin-left: 10px;
   line-height: 1.5;
-  color: #333;
+  color: #f1f1f1;
 }
 .info.dark {
   color: #fff;

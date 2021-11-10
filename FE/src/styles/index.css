@@ -4,17 +4,13 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Be Vietnam Pro', sans-serif;
 }
 *::before,
 *::after {
   box-sizing: border-box;
 }
-body {
-  font-family: 'Be Vietnam Pro', sans-serif;
-}
-h3 {
-  font-family: 'Be Vietnam Pro', sans-serif;
-}
+
 ::-webkit-scrollbar {
   width: 0;
 }
@@ -30,15 +26,23 @@ img {
   background-color: #a8bbbf;
 } */
 .App {
-  min-height: 100vh;
+  height: 100vh;
+  padding-right: 30px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
 }
 .container {
-  max-width: 1300px;
+  max-width: 1400px;
   width: 100%;
-  margin: 50px auto 0;
+  height: 100%;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 h3 {
-  color: #000;
+  color: #f1f1f1;
   display: flex;
   align-items: center;
 }
@@ -47,85 +51,108 @@ h3.dark {
 }
 
 .header {
-  width: 100%;
-  height: 13vh;
+  width: 30%;
+  height: 92%;
+  margin-right: 35px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  background-color: #18273b;
+  border-radius: 15px;
+  padding: 15px 0 15px 15px;
+}
+.header-nav,
+.header-menu {
+  width: 100%;
+  /* background-color: #fff; */
+  border-radius: 10px;
+}
+.header-nav {
+  height: 12%;
+  display: flex;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 50px 50px;
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      transparent
-    ),
-    url(../images/bg.jpg);
-  background-position: center;
-  background-size: cover;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+}
+.header-menu {
+  height: 90%;
+  list-style-type: none;
+  padding-top: 20%;
+}
+.header-menu li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* background: red; */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px 0 0 15px;
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+.header-menu li a.active {
+  background: #f1f1f1;
+  color: #18273b;
+}
+.header-menu li a.active::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: currentColor;
+  top: -30px;
+  right: 0;
+  box-shadow: 15px 15px 0 0 #f1f1f1;
+}
+.header-menu li a.active.dark {
+  background-color: #242526;
+  color: #f1f1f1;
+}
+.header-menu li a.active.dark::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #000;
+  top: -30px;
+  right: 0;
+  box-shadow: 15px 15px 0 0 #242526;
+}
+.header-menu li a.active::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: currentColor;
+  bottom: -30px;
+  right: 0;
+  box-shadow: 15px -15px 0 0 #f1f1f1;
+}
+.header-menu li a.active.dark::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #000;
+  bottom: -30px;
+  right: 0;
+  box-shadow: 15px -15px 0 0 #242526;
+}
+.header-menu li a span {
+  margin-left: 20px;
+}
+.icon {
+  font-size: 150%;
 }
 .header.dark {
   background: #000;
-}
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 85%;
-  height: 50%;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px #fff;
-  padding: 0 30px;
-}
-.links {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-.links li a {
-  text-decoration: none;
-  display: block;
-  background: #f1f1f1;
-  opacity: 0.8;
-  margin-right: 20px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  position: relative;
-}
-
-.icon {
-  margin: auto;
-  font-size: 150%;
-  color: #1888ff;
-}
-.icon.chat {
-  color: #19e635;
-}
-.translate:hover::before {
-  content: attr(translate);
-  position: absolute;
-  width: 150%;
-  padding: 0.6rem;
-  background: #fff;
-  color: #000;
-  left: -150%;
-  top: -100%;
-  border-radius: 15px 15px 0 15px;
-}
-.chat:hover::before {
-  content: attr(chat);
-  position: absolute;
-  width: 350%;
-  padding: 0.6rem;
-  background: #fff;
-  color: #000;
-  left: 100%;
-  top: -100%;
-  border-radius: 15px 15px 15px 0;
-}
-.links li a:hover {
-  background: #fff;
 }
 
 /* Toogle  */
